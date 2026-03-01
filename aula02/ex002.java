@@ -3,13 +3,15 @@
 import java.util.Locale;
 import java.util.Scanner;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 
 public class ex002 {
     public static void main(String[] args) {
-        Locale.setDefault(Locale.US);
-        Scanner leitor = new Scanner(System.in);
-        DecimalFormat df = new DecimalFormat("0.##");
         double largura, altura;
+        Scanner leitor = new Scanner(System.in);
+        leitor.useLocale(Locale.US);
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
+        DecimalFormat df = new DecimalFormat("0.##", symbols);
 
         System.out.println("------- ÁREA DE UM RETÂNGULO -------");
         System.out.print("Largura do retângulo em centímetros: ");
