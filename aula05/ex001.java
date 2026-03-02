@@ -1,3 +1,10 @@
+/*
+Dia da Semana:
+
+Crie um programa que peça ao utilizador para inserir um número inteiro entre 1 e 7. O programa deve exibir o nome do
+dia correspondente (1 = domingo, 2 = segunda-feira, etc).
+*/
+
 import java.util.Scanner;
 
 public class ex001 {
