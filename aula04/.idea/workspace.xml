@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1c05690a-78e7-4e42-a9b9-139aa254a4b7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex001.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex001.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex006.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex006.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +35,7 @@
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.ex007">
+  <component name="RunManager" selected="Application.ex006">
     <configuration name="ex001" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ex001" />
       <module name="aula04" />
@@ -66,8 +66,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ex007" />
         <item itemvalue="Application.ex006" />
+        <item itemvalue="Application.ex007" />
         <item itemvalue="Application.ex001" />
         <item itemvalue="Application.ex005" />
       </list>
