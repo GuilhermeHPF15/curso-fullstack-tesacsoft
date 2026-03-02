@@ -18,17 +18,10 @@ public class ex005 {
         semaforo = leitor.nextLine().toUpperCase();
 
         switch (semaforo) {
-            case "V":
-                System.out.println("Acelerar!");
-                break;
-            case "A":
-                System.out.println("Atenção!");
-                break;
-            case "P":
-                System.out.println("Parar!");
-                break;
-            default:
-                System.out.println("Sinal quebrado!");
+            case "V": System.out.println("Acelerar!"); break;
+            case "A": System.out.println("Atenção!"); break;
+            case "P": System.out.println("Parar!");break;
+            default: System.out.println("Sinal quebrado!");
         }
     }
 }

@@ -16,17 +16,10 @@ public class ex003 {
         escolha = leitor.nextInt();
 
         switch (escolha) {
-            case 1:
-                System.out.println("Jogo iniciado!");
-                break;
-            case 2:
-                System.out.println("Jogo carregado!");
-                break;
-            case 3:
-                System.out.println("Jogo encerrado!");
-                break;
-            default:
-                System.out.println("Opção inválida!");
+            case 1: System.out.println("Jogo iniciado!"); break;
+            case 2: System.out.println("Jogo carregado!"); break;
+            case 3: System.out.println("Jogo encerrado!"); break;
+            default: System.out.println("Opção inválida!");
         }
     }
 }
