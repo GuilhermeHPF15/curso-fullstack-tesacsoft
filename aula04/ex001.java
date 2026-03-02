@@ -1,3 +1,6 @@
+/* Peça ao utilizador para inserir a nota final de um aluno (de 0 a 20). Se a nota for maior ou igual a 10, o aluno
+está "Aprovado". Caso contrário, está "Reprovado". */
+
 import java.util.Scanner;
 import java.util.Locale;
 
@@ -14,7 +17,7 @@ class ex001 {
 
         media = ((nota1 + nota2) / 2);
 
-        System.out.println("Média = " + media);
+        System.out.println("Nota final = " + media);
 
         if (media >= 10) {
             System.out.println("Estudante aprovado");

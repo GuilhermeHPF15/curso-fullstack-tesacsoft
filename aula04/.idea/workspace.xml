@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c05690a-78e7-4e42-a9b9-139aa254a4b7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../aula02/ex001.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aula02/ex001.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../aula02/ex002.java" beforeDir="false" afterPath="$PROJECT_DIR$/../aula02/ex002.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ex001.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex001.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex006.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex006.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex007.java" beforeDir="false" afterPath="$PROJECT_DIR$/ex007.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,20 +21,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ex001.executor": "Run",
-    "Application.ex005.executor": "Run",
-    "Application.ex006.executor": "Run",
-    "Application.ex007.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ex001.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ex005.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ex006.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ex007.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.ex007">
     <configuration name="ex001" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ex001" />
