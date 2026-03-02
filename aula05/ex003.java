@@ -8,17 +8,17 @@ import java.util.Scanner;
 
 public class ex003 {
     public static void main(String[] args) {
-        int escolha;
+        String escolha;
         Scanner leitor = new Scanner(System.in);
 
         System.out.println("1. Iniciar Jogo\n2. Carregar Jogo\n3. Sair\n");
         System.out.print("Sua escolha: ");
-        escolha = leitor.nextInt();
+        escolha = leitor.nextLine();
 
         switch (escolha) {
-            case 1: System.out.println("Jogo iniciado!"); break;
-            case 2: System.out.println("Jogo carregado!"); break;
-            case 3: System.out.println("Jogo encerrado!"); break;
+            case "1": System.out.println("Jogo iniciado!"); break;
+            case "2": System.out.println("Jogo carregado!"); break;
+            case "3": System.out.println("Jogo encerrado!"); break;
             default: System.out.println("Opção inválida!");
         }
     }
