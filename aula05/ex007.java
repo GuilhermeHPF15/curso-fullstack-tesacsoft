@@ -20,10 +20,11 @@ public class ex007 {
         Scanner leitor = new Scanner(System.in);
         DecimalFormat df = new DecimalFormat("0.00");
 
-        System.out.println("------- VENDA DE INGRESSOS -------\n1 = Normal\n2 = Estudante\n3 = Idoso");
+        System.out.println("------- VENDA DE INGRESSOS -------\n1 = Normal\n2 = Estudante\n3 = Idoso\n");
         System.out.print("Sua escolha: ");
         ingresso = leitor.nextLine();
-        System.out.print("\nQue dia da semana é Hoje? (1 = Domingo, 7 = sábado) ");
+
+        System.out.print("Que dia da semana é Hoje? (1 = Domingo, 7 = sábado) ");
         dia = leitor.nextLine();
 
         switch (ingresso) {
@@ -45,6 +46,6 @@ public class ex007 {
         }
 
         descontado = 1000 - (1000 * desconto / 100);
-        System.out.println("Total a pagar: " + df.format(descontado) + " Kz");
+        System.out.println("\nTotal a pagar: " + df.format(descontado) + " Kz");
     }
 }

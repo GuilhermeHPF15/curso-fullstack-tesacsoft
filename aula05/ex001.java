@@ -23,9 +23,9 @@ public class ex001 {
             case "5": diaSemana = "quinta-feira"; break;
             case "6": diaSemana = "sexta-feira"; break;
             case "7": diaSemana = "sábado"; break;
-            default: System.out.println("Dia inválido!"); return;
+            default: System.out.println("\nDia inválido!"); return;
         }
 
-        System.out.println("Hoje é " + diaSemana + "!");
+        System.out.println("\nHoje é " + diaSemana + "!");
     }
 }

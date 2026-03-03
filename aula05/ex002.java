@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class ex002 {
     public static void main(String[] args) {
         double num1, num2;
-        String n1f, n2f, operador;
+        String n1f, n2f, operador, resultado;
         DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
         DecimalFormat df = new DecimalFormat("0.##", symbols);
         Scanner leitor = new Scanner(System.in);
@@ -21,28 +21,24 @@ public class ex002 {
 
         System.out.print("Primeiro número: ");
         num1 = leitor.nextDouble();
-        n1f = df.format(num1);
+
         System.out.print("Operador: ");
         operador = leitor.next();
+
         System.out.print("Segundo número: ");
         num2 = leitor.nextDouble();
+
+        n1f = df.format(num1);
         n2f = df.format(num2);
 
         switch (operador) {
-            case "+":
-                System.out.println(n1f + " + " + n2f + " = " + df.format((num1 + num2)));
-                break;
-            case "-":
-                System.out.println(n1f + " - " + n2f + " = " + df.format((num1 - num2)));
-                break;
-            case "*":
-                System.out.println(n1f + " * " + n2f + " = " + df.format((num1 * num2)));
-                break;
-            case "/":
-                System.out.println(n1f + " / " + n2f + " = " + df.format((num1 / num2)));
-                break;
-            default:
-                System.out.println("Operador inválido!");
+            case "+": resultado = df.format(num1 + num2); break;
+            case "-": resultado = df.format(num1 - num2); break;
+            case "*": resultado = df.format(num1 * num2); break;
+            case "/": resultado = df.format(num1 / num2); break;
+            default: System.out.println("\nOperador inválido!"); return;
         }
+
+        System.out.println(n1f + " " + operador + " " + n2f + " = " + resultado);
     }
 }
