@@ -12,18 +12,24 @@ import java.util.Scanner;
 
 public class ex005 {
     public static void main(String[] args) {
-        String semaforo;
         Scanner leitor = new Scanner(System.in);
 
         System.out.println("Qual é a cor do semáforo?\n\"V\" = Verde\n\"A\" = Amarelo\n\"P\" = Vermelho\n");
+
+        String semaforo;
         System.out.print("Sua opção: ");
         semaforo = leitor.nextLine().toUpperCase();
 
+        leitor.close();
+
+        String acao;
         switch (semaforo) {
-            case "V": System.out.println("Acelerar!"); break;
-            case "A": System.out.println("Atenção!"); break;
-            case "P": System.out.println("Parar!");break;
-            default: System.out.println("Sinal quebrado!");
+            case "V": acao = "Acelerar"; break;
+            case "A": acao = "Atenção"; break;
+            case "P": acao = "Parar"; break;
+            default: System.out.println("Sinal quebrado!"); return;
         }
+
+        System.out.printf("%n%s!%n", acao);
     }
 }
