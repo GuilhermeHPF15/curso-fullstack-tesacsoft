@@ -9,12 +9,15 @@ import java.util.Scanner;
 
 public class ex001 {
     public static void main(String[] args) {
-        String dia, diaSemana;
         Scanner leitor = new Scanner(System.in);
 
+        String dia;
         System.out.print("Qual é o dia da semana? (escolha de 1 a 7) " );
         dia = leitor.nextLine();
 
+        leitor.close();
+
+        String diaSemana;
         switch (dia) {
             case "1": diaSemana = "domingo"; break;
             case "2": diaSemana = "segunda-feira"; break;
@@ -26,6 +29,6 @@ public class ex001 {
             default: System.out.println("\nDia inválido!"); return;
         }
 
-        System.out.println("\nHoje é " + diaSemana + "!");
+        System.out.printf("%nHoje é %s!%n", diaSemana);
     }
 }
