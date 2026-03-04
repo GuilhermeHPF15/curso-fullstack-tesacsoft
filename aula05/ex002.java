@@ -25,6 +25,7 @@ public class ex002 {
         operador = leitor.next().charAt(0);
         System.out.print("Segundo número: ");
         num2 = leitor.nextDouble();
+
         leitor.close();
 
         double resultado;
