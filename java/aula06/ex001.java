@@ -44,7 +44,7 @@ public class ex001 {
         System.out.printf("%nO seu triângulo é %s.%n", triangulo);
 
         double a2 = a * a, b2 = b * b, c2 = c * c;
-        if (a2 == b2 + c2 || b2 == a2 + c2 || c2 == b2 + a2) {
+        if (a2 == b2 + c2 || b2 == a2 + c2 || c2 == a2 + b2) {
             System.out.println("E é um triângulo retângulo.");
         }
     }

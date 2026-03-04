@@ -15,33 +15,36 @@ Se permanecer menos de 15 minutos (0 horas), é grátis
 
 import java.util.Scanner;
 import java.text.DecimalFormat;
-import java.util.Locale;
 
 public class ex009 {
     public static void main(String [] args) {
-        String veiculo;
-        double custo, taxa, teto, minutos;
-        int horas;
-        Scanner leitor = new Scanner(System.in);
-        leitor.useLocale(Locale.US);
-        DecimalFormat kwanzas = new DecimalFormat("0.00");
+        System.out.print("1 = Moto\n2 = Carro\n3 = Camionete\n\nQual é o seu veículo? ");
 
-        System.out.println("1 = Moto\n2 = Carro\n3 = Camionete\n");
-        System.out.print("Qual é o seu veículo? ");
+        String veiculo;
+        Scanner leitor = new Scanner(System.in);
         veiculo = leitor.nextLine();
 
+        double taxa, teto;
         switch (veiculo) {
             case "1": taxa = 5; teto = 50; break;
             case "2": taxa = 10; teto = 80; break;
             case "3": taxa = 15; teto = 80; break;
-            default: System.out.println("Veículo inválido!"); return;
+            default:
+                System.out.println("\nVeículo inválido!");
+                leitor.close();
+                return;
         }
 
         System.out.print("Quantos minutos o seu veículo ficou estacionado? ");
+        double minutos;
         minutos = leitor.nextDouble();
 
-        horas = (int) minutos / 60;
+        leitor.close();
 
+        int horas;
+        horas = (int) (minutos / 60);
+
+        double custo;
         if (horas > 5) {
             custo = teto;
         } else if (minutos < 15) {
@@ -50,6 +53,7 @@ public class ex009 {
             custo = taxa * horas;
         }
 
-        System.out.println("\nPreço do estacionamento: " + kwanzas.format(custo) + " Kz");
+        DecimalFormat kwanzas = new DecimalFormat("0.00");
+        System.out.printf("%nPreço do estacionamento: %s Kz", kwanzas.format(custo));
     }
 }
