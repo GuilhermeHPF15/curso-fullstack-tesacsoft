@@ -17,35 +17,47 @@ import java.util.Scanner;
 
 public class ex001 {
     public static void main(String[] args) {
+        //Abrir leitor de inputs
         Scanner leitor = new Scanner(System.in);
-        double a, b, c;
+
+        //Pedir lado A
         System.out.print("Lado A: ");
-        a = leitor.nextDouble();
+        double a = leitor.nextDouble();
+
+        //Pedir lado B
         System.out.print("Lado B: ");
-        b = leitor.nextDouble();
+        double b = leitor.nextDouble();
+
+        //Pedir lado C
         System.out.print("Lado C: ");
-        c = leitor.nextDouble();
+        double c = leitor.nextDouble();
+
+        //Fechar leitor de inputs
         leitor.close();
 
+        //Validar triângulo
         if ((a + b) <= c || (a + c) <= b || (b + c) <= a) {
-            System.out.println("Triângulo inválido!");
+            System.out.println("\nTriângulo inválido!");
             return;
         }
 
+        //Classificar triângulo
         String triangulo;
         if (a == b && b == c) {
-            triangulo = "equilátero!";
+            triangulo = "equilátero";
         } else if (a == b || b == c || a == c) {
-            triangulo = "isósceles!";
+            triangulo = "isósceles";
         } else {
-            triangulo = "escaleno!";
+            triangulo = "escaleno";
         }
 
-        System.out.printf("%nO seu triângulo é %s.%n", triangulo);
+        //Saída
+        System.out.printf("%nO seu triângulo é %s!%n", triangulo);
 
+        //Saída adicional caso seja um triângulo retângulo
         double a2 = a * a, b2 = b * b, c2 = c * c;
         if (a2 == b2 + c2 || b2 == a2 + c2 || c2 == a2 + b2) {
-            System.out.println("E é um triângulo retângulo.");
+            System.out.println("E é um triângulo retângulo!");
         }
     }
 }

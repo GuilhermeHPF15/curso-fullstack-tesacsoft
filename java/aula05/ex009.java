@@ -18,32 +18,33 @@ import java.text.DecimalFormat;
 
 public class ex009 {
     public static void main(String [] args) {
-        System.out.print("1 = Moto\n2 = Carro\n3 = Camionete\n\nQual é o seu veículo? ");
-
-        String veiculo;
+        //Abrir leitor de inputs
         Scanner leitor = new Scanner(System.in);
-        veiculo = leitor.nextLine();
 
+        //Pedir veículo
+        System.out.print("1 = Moto\n2 = Carro\n3 = Camionete\n\nQual é o seu veículo? ");
+        String veiculo = leitor.nextLine();
+
+        //Validar veículo, atribuir taxa e teto
         double taxa, teto;
         switch (veiculo) {
             case "1": taxa = 5; teto = 50; break;
             case "2": taxa = 10; teto = 80; break;
             case "3": taxa = 15; teto = 80; break;
-            default:
-                System.out.println("\nVeículo inválido!");
-                leitor.close();
-                return;
+            default: System.out.println("\nVeículo inválido!"); leitor.close(); return;
         }
 
+        //Pedir tempo de estacionamento em minutos
         System.out.print("Quantos minutos o seu veículo ficou estacionado? ");
-        double minutos;
-        minutos = leitor.nextDouble();
+        double minutos = leitor.nextDouble();
 
+        //Fechar leitor de inputs
         leitor.close();
 
-        int horas;
-        horas = (int) (minutos / 60);
+        //Converter minutos estacionados em horas inteiras
+        int horas = (int) (minutos / 60);
 
+        //Calcular custo total
         double custo;
         if (horas > 5) {
             custo = teto;
@@ -53,7 +54,8 @@ public class ex009 {
             custo = taxa * horas;
         }
 
+        //Saída com formatação monetária
         DecimalFormat kwanzas = new DecimalFormat("0.00");
-        System.out.printf("%nPreço do estacionamento: %s Kz", kwanzas.format(custo));
+        System.out.printf("%nPreço do estacionamento: %s Kz%n", kwanzas.format(custo));
     }
 }

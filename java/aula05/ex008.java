@@ -13,32 +13,37 @@ Zona Sul: Base 40 Kz. Sem taxa extra de peso.
 
 import java.util.Scanner;
 import java.text.DecimalFormat;
-import java.util.Locale;
 
 public class ex008 {
     public static void main(String [] args) {
-        String zona;
-        double peso, pesoLimite, pesoExtra, custoBase, taxa;
-        DecimalFormat df = new DecimalFormat("0.00");
+        //Abrir leitor de inputs
         Scanner leitor = new Scanner(System.in);
-        leitor.useLocale(Locale.US);
 
-        System.out.println("1 = Norte\n2 = Centro\n3 = Sul\n");
-        System.out.print("Escolha a zona de entrega: ");
-        zona = leitor.nextLine();
+        //Pedir zona de entrega
+        System.out.print("1 = Norte\n2 = Centro\n3 = Sul\n\nEscolha a zona de entrega: ");
+        String zona = leitor.nextLine();
 
+        //Validar zona, atribuir custo base, peso limite e taxa por quilo excedente
+        double custoBase, pesoLimite, taxa;
         switch (zona) {
             case "1": custoBase = 50; pesoLimite = 10; taxa = 5; break;
             case "2": custoBase = 30; pesoLimite = 20; taxa = 2; break;
             case "3": custoBase = 40; pesoLimite = 0; taxa = 0; break;
-            default: System.out.println("\nZona inválida!"); return;
+            default: System.out.println("\nZona inválida!"); leitor.close(); return;
         }
 
+        //Pedir peso da encomenda
         System.out.print("Qual é o peso da encomenda? ");
-        peso = leitor.nextDouble();
+        double peso = leitor.nextDouble();
 
-        pesoExtra = (peso > pesoLimite) ? peso - pesoLimite : 0;
+        //Fechar leitor de inputs
+        leitor.close();
 
-        System.out.println("\nO preço da encomenda será de " + df.format((custoBase + taxa * pesoExtra)) + " Kz");
+        //Calcular peso excedente
+        double pesoExtra = (peso > pesoLimite) ? peso - pesoLimite : 0;
+
+        //Cálculo de custo final e saída com formatação monetária
+        DecimalFormat df = new DecimalFormat("0.00");
+        System.out.printf("%nO preço da encomenda será de %s Kz.%n", df.format((custoBase + taxa * pesoExtra)));
     }
 }
