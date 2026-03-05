@@ -17,37 +17,52 @@ import java.text.DecimalFormat;
 
 public class ex007 {
     public static void main(String[] args) {
-        String ingresso, dia, cliente;
-        double descontado, desconto;
+        //Abrir leitor de inputs, declarar custo base do ingresso
+        double custoBase = 1000;
         Scanner leitor = new Scanner(System.in);
-        DecimalFormat df = new DecimalFormat("0.00");
 
-        System.out.println("------- VENDA DE INGRESSOS -------\n1 = Normal\n2 = Estudante\n3 = Idoso\n");
-        System.out.print("Sua escolha: ");
-        ingresso = leitor.nextLine();
+        //Pedir tipo de ingresso
+        System.out.print("------ VENDA DE INGRESSOS ------\n1 = Normal\n2 = Estudante\n3 = Idoso\n\nSua escolha: ");
+        String ingresso = leitor.nextLine();
 
-        System.out.print("Que dia da semana é Hoje? (1 = Domingo, 7 = sábado) ");
-        dia = leitor.nextLine();
-
+        //Validar ingresso, atribuir cliente e desconto
+        String cliente;
+        double desconto;
         switch (ingresso) {
             case "1": cliente = "normal"; desconto = 0; break;
             case "2": cliente = "estudante"; desconto = 50; break;
             case "3": cliente = "idoso"; desconto = 50; break;
-            default: System.out.println("Opção inválida!"); return;
+            default: System.out.println("\nOpção inválida!"); leitor.close(); return;
         }
 
-        System.out.println("\nPreço do ingresso: 1000,00 Kz");
+        //Pedir dia da semana
+        System.out.print("Que dia da semana é Hoje? (1 = Domingo, 7 = sábado) ");
+        String dia = leitor.nextLine();
 
+        //Fechar leitor de inputs
+        leitor.close();
+
+        //Criar formatação monetária
+        DecimalFormat kwanzas = new DecimalFormat("0.00");
+
+        //Saída do custo base do ingresso
+        System.out.printf("%nPreço do ingresso: %s Kz.%n", kwanzas.format(custoBase));
+
+        //Saída do desconto do cliente (caso tenha)
         if (desconto > 0) {
             System.out.println("Desconto de " + cliente + ": 50%");
         }
 
+        //Saída do desconto de quarta-feira (caso seja quarta-feira)
         if (dia.equals("4")) {
             desconto += 10;
             System.out.println("Desconto de quarta-feira: 10%");
         }
 
-        descontado = 1000 - (1000 * desconto / 100);
-        System.out.println("\nTotal a pagar: " + df.format(descontado) + " Kz");
+        //Cálcular custo final
+        double custoFinal = custoBase - (custoBase * desconto / 100);
+
+        //Saída do custo final
+        System.out.printf("%nTotal a pagar: %s Kz.", kwanzas.format(custoFinal));
     }
 }
