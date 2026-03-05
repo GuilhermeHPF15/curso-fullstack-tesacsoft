@@ -50,19 +50,19 @@ public class ex007 {
 
         //Saída do desconto do cliente (caso tenha)
         if (desconto > 0) {
-            System.out.println("Desconto de " + cliente + ": 50%");
+            System.out.printf("Desconto de %s: %d%%." ,cliente, (int) desconto);
         }
 
         //Saída do desconto de quarta-feira (caso seja quarta-feira)
         if (dia.equals("4")) {
             desconto += 10;
-            System.out.println("Desconto de quarta-feira: 10%");
+            System.out.println("\nDesconto de quarta-feira: 10%");
         }
 
         //Cálcular custo final
         double custoFinal = custoBase - (custoBase * desconto / 100);
 
         //Saída do custo final
-        System.out.printf("%nTotal a pagar: %s Kz.", kwanzas.format(custoFinal));
+        System.out.printf("%nTotal a pagar: %s Kz.%n", kwanzas.format(custoFinal));
     }
 }
