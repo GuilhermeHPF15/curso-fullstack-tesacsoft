@@ -1,5 +1,18 @@
 package aula07;
 
+/*
+Tabuada:
+
+Peça ao utilizador um número inteiro e utilize um ciclo for para mostrar a tabuada desse número (de 1 a 10).
+Exemplo:
+Entrada: 5
+Saída:
+5 x 1 = 5
+5 x 2 = 10
+...
+5 x 10 = 50
+ */
+
 import java.util.Scanner;
 
 public class ex002 {

@@ -1,5 +1,7 @@
 /*
-Soma dos Dígitos Enunciado: Peça um número inteiro ao utilizador e utilize um ciclo for (iterando sobre a string do
+Soma dos Dígitos:
+
+Enunciado: Peça um número inteiro ao utilizador e utilize um ciclo for (iterando sobre a string do
 número) para calcular a soma de todos os seus dígitos.
 Exemplo: Entrada: 1234 Cálculo: 1 + 2 + 3 + 4
 Saída: 10

@@ -1,7 +1,9 @@
 package aula07;
 
 /*
-Maior e Menor Valor Enunciado: Peça ao utilizador para inserir 5 números. Utilize um ciclo for para ler cada número e
+Maior e Menor Valor:
+
+nunciado: Peça ao utilizador para inserir 5 números. Utilize um ciclo for para ler cada número e
 descubra qual foi o maior e o menor valor digitado.
 Exemplo:
 Entrada: 10, 3, 25, 7, 12

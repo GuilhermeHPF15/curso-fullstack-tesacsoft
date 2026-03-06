@@ -1,5 +1,17 @@
 package aula07;
 
+/*
+Soma de Intervalo:
+
+Enunciado: Peça dois números ao utilizador (início e fim) e use um ciclo for para calcular e mostrar a soma de todos os
+números nesse intervalo.
+Exemplo:
+Entrada: 3 e 6
+Cálculo: 3 + 4 + 5 + 6
+Saída: 18
+
+ */
+
 import java.util.Scanner;
 
 public class ex004 {

@@ -1,7 +1,9 @@
 package aula07;
 
 /*
- Pirâmide de Asteriscos Enunciado: Peça um número ao utilizador para definir a altura edesenhe uma pirâmide de
+Pirâmide de Asteriscos:
+
+Enunciado: Peça um número ao utilizador para definir a altura edesenhe uma pirâmide de
 asteriscos usando ciclos for.
 Exemplo:
 Entrada: 3
