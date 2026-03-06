@@ -22,5 +22,7 @@ public class ex010 {
         }
 
         System.out.println(resultado);
+
+        leitor.close();
     }
 }
