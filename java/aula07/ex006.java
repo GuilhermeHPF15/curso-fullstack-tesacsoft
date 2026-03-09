@@ -13,12 +13,15 @@ import java.util.Scanner;
 
 public class ex006 {
     public static void main (String[] args) {
-        int num, resultado;
+        int num, resultado = 1;
         Scanner leitor = new Scanner(System.in);
         System.out.print("\nDigite um número para ver seu fatorial: ");
         num = leitor.nextInt();
 
-        resultado = 1;
+        if (num < 0) {
+            num *= -1;
+        }
+
         for (int i = num; i >= 1; i--) {
             resultado *= i;
         }

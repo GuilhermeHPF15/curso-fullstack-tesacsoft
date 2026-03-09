@@ -14,19 +14,17 @@ Saída:
 
 import java.util.Scanner;
 
-public class ex007 {
+public class ex007b {
     public static void main (String[] args) {
         int altura;
+        String asterisco = "*";
         Scanner leitor = new Scanner(System.in);
         System.out.print("\nAltura da pirâmide: ");
         altura = leitor.nextInt();
         System.out.print("\n");
 
         for (int i = 1; i <= altura; i++) {
-            for (int j = 1; j <= i; j++) {
-                System.out.print("*");
-            }
-            System.out.print("\n");
+            System.out.println(asterisco.repeat(i));
         }
 
         leitor.close();

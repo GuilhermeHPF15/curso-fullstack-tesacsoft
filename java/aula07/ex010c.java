@@ -2,7 +2,7 @@ package aula07;
 
 import java.util.Scanner;
 
-public class ex011 {
+public class ex010c {
     public static void main(String[] args) {
         int num, resultado = 0;
         Scanner leitor = new Scanner(System.in);

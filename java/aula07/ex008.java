@@ -20,24 +20,13 @@ public class ex008 {
         termos = leitor.nextInt();
         leitor.close();
 
-        if (termos == 1) {
-            System.out.println("\n0");
-            return;
-        }
-
-        System.out.print("\n0, 1");
-
-        if (termos == 2) {
-            return;
-        }
-
         num1 = 0;
         num2 = 1;
-        for (int i = 3; i <= termos; i++) {
+        for (int i = 0; i < termos; i++) {
+            System.out.printf(num1 + " ");
             holder = num2;
             num2 += num1;
             num1 = holder;
-            System.out.printf(", %d", num2);
         }
     }
 }
