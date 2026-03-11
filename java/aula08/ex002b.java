@@ -1,5 +1,9 @@
 package aula08;
 
+/*
+Versão otimizada do professor Gilberto.
+ */
+
 import java.util.Scanner;
 
 public class ex002b {
