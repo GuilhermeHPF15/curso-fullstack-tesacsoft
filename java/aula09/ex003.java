@@ -1,13 +1,10 @@
 package aula09;
 
-import java.util.Scanner;
-
 public class ex003 {
     public static void main(String[] args) {
-        int i = 0;
+        int i = 1;
         while (i == 0) {
             System.out.println("while");
-            break;
         }
 
         do {
