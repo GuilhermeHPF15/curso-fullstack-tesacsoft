@@ -1,0 +1,31 @@
+package aula11;
+
+import java.util.Scanner;
+
+public class ex001 {
+    public static void main(String[] args) {
+        int[] original = new int[5];
+        int[] invertido = new int[5];
+        Scanner leitor = new Scanner(System.in);
+
+        for (int i = 1; i <= 5; i++) {
+            System.out.printf("Número %d: ", i);
+            original[i-1] = leitor.nextInt();
+        }
+
+        leitor.close();
+
+        for (int i = 0; i < original.length; i++) {
+            invertido[i] = original[original.length-i-1];
+        }
+
+        for (int i = 0; i < original.length; i++) {
+            if (original[i] != invertido[i]) {
+                System.out.println("O vetor não é palíndromo!");
+                return;
+            }
+        }
+
+        System.out.println("O vetor é palíndromo!");
+    }
+}

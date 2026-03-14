@@ -7,6 +7,7 @@ public class ex003 {
         int[] vetor = new int[5];
         int auxiliar, contador;
         Scanner leitor = new Scanner(System.in);
+
         for (int i = 0; i < vetor.length; i++) {
             System.out.printf("Número %d: ", i+1);
             vetor[i] = leitor.nextInt();
