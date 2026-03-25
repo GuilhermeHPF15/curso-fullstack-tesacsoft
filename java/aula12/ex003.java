@@ -38,4 +38,3 @@ public class ex003 {
         System.out.printf("%nO peso ideal é %.2fKg", resultado);
     }
 }
-

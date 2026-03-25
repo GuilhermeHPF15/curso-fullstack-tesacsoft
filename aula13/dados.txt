@@ -1,0 +1,27 @@
+Banco de dados: escola
+Entidades: escola, cursos e alunos
+
+escola: pk_escola, nome, endereco, telefone, email
+alunos: pk_aluno, nome, data_nascimento, endereco, telefone, email
+cursos: pk_curso, nome, custo, carga_horaria, estado
+inscricao: pk_inscricao, fk_aluno, fk_curso, data_inscricao
+---------------------------------------------------------------------------------------------------------------
+Banco de dados: biblioteca
+Entidades: biblioteca, usuarios, livros, emprestimos
+
+biblioteca: pk_biblioteca, nome, endereco, telefone, email
+usuarios: pk_usuario, nome, data_nascimento, endereco, telefone, email
+livros: pk_livro, titulo, genero, autor, data_lancamento, prateleira, total_copias, copias_disponiveis
+emprestimo: pk_emprestimo, fk_usuario, fk_livro, data_emprestimo, data_devolucao
+---------------------------------------------------------------------------------------------------------------
+Banco de dados: empresa
+Entidades: clientes, pedido_itens, pedidos, funcionarios, produtos, itens_fornecidos, fornecedores, categorias
+
+clientes: pk_cliente, nome, data_nascimento, endereco, telefone, email
+pedido_itens: pk_pedido_itens, fk_produto, fk_pedido, quantidade
+pedidos: pk_pedido, fk_cliente, fk_funcionario, data, metodo_pagamento, custo
+funcionarios: pk_funcionario, nome, data_nascimento, endereco, telefone, email
+categorias: pk_categorias, nome
+produtos: pk_produto, nome, fk_categoria, quantidade
+itens_fornecidos: pk_item_fornecido, fk_fornecedor, fk_produto, quantidade
+fornecedores: pk_fornecedor, nome

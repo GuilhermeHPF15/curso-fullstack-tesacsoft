@@ -1,6 +1,8 @@
 package aula12;
 
 /*
+Equação de segundo grau.
+
 Exemplo de delta positivo: 1, -8 e 12.
 Exemplo de delta 0: 1, -10 e 25.
 Exemplo de delta negativo: 1, 2 e 5.
