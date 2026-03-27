@@ -1,5 +1,5 @@
 especialidades
-pk_nome
+pk_especialidade, nome
 
 medicos
 pk_medico, fk_especialidade, nome, nascimento, email, telefone
@@ -7,23 +7,35 @@ pk_medico, fk_especialidade, nome, nascimento, email, telefone
 pacientes
 pk_paciente, nome, nascimento, email, telefone
 
-exames
-pk_exame, fk_cliente, descricao, data
-
 enfermeiros
 pk_enfermeiro, nome, nascimento, email, telefone
 
+metodos_de_pagamento
+pk_metodo, metodo, estado
+
 consultas
-pk_consulta, fk_paciente, fk_enfermeiro, fk_medico, custo, metodo_de_pagamento
+pk_consulta, fk_paciente, fk_enfermeiro, fk_medico, custo, fk_pagamento
+
+exames
+pk_exame, fk_paciente, fk_consulta, descricao, data, custo, fk_pagamento
 
 diagnosticos
-pk_diagnostico, fk_consulta, descricao
+pk_diagnostico, fk_consulta, fk_exame, descricao
+
+medicamentos
+pk_medicamento, nome, tipo, nacionalidade, data_expiracao, custo, fk_pagamento
 
 receitas
-pk_receita, fk_diagnostico, medicamento, duracao
+pk_receita, fk_consulta
+
+medicamentos_receitados
+pk_receitado, fk_receita, fk_medicamento, dose, duracao
 
 quartos
-pk_quarto, tipo
+pk_quarto, tipo, designacao
 
 internacoes
-pk_internacao, fk_paciente, fk_quarto, duracao
+pk_internacao, fk_paciente, fk_quarto, duracao, descricao, custo, fk_pagamento
+
+pagamento_de_servicos
+pk_pagamento, fk_metodo, fk_consultas, fk_exames, fk_medicamentos, fk_internacoes, custo, data

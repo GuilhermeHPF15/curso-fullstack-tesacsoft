@@ -1,0 +1,32 @@
+locais
+pk_local, nome
+
+salas
+pk_sala, nome, fk_local
+
+organizadores
+pk_organizador, nome, nascimento, telefone, email
+
+eventos
+pk_evento, nome, fk_organizador, fk_local, data
+
+secoes
+pk_secao, nome, fk_evento
+
+palestrantes
+pk_palestrante, nome, nascimento, telefone, email
+
+palestras
+pk_palestra, fk_evento, fk_palestrante
+
+participantes
+pk_participante, nome, nascimento, telefone, email
+
+inscricoes
+pk_inscricao, fk_participante, fk_evento, custo
+
+avaliacoes_de_eventos
+pk_avaliacao_de_evento, fk_evento, fk_participante, avaliacao
+
+avaliacoes_de_palestras
+pk_avaliacao_de_palestra, fk_palestra, fk_participante, avaliacao
