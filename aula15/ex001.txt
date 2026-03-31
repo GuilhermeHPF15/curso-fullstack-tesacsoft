@@ -1,0 +1,53 @@
+# Criação das tabelas
+CREATE TABLE curso(
+pk_curso SERIAL PRIMARY KEY, 
+nome VARCHAR(100 )NOT NULL, 
+mensalidade NUMERIC(10,2)
+);
+
+CREATE TABLE aluno(
+pk_aluno SERIAL PRIMARY KEY, 
+nome VARCHAR(150) NOT NULL, 
+data_nascimento DATE NOT NULL, 
+endereco VARCHAR(200), 
+telefone VARCHAR(15)
+);
+
+CREATE TABLE inscricao(
+pk_inscricao SERIAL PRIMARY KEY,
+fk_aluno INT NOT NULL,
+fk_curso INT NOT NULL,
+data_inscricao DATE NOT NULL DEFAULT CURRENT_DATE,
+estado_inscricao BOOLEAN NOT NULL DEFAULT TRUE,
+
+CONSTRAINT inscricao_aluno
+FOREIGN KEY (fk_aluno)
+REFERENCES aluno(pk_aluno)
+ON DELETE CASCADE,
+
+CONSTRAINT inscricao_curso
+FOREIGN KEY (fk_curso)
+REFERENCES curso(pk_curso)
+);
+
+# Inserindo dados
+INSERT INTO curso (mensalidade, nome) VALUES
+(1500.00, 'Enfermagem'),
+(1500.00, 'Programação'),
+(1500.00, 'Inglês'),
+(1500.00, 'Informática'),
+(1500.00, 'Jornalismo');
+
+INSERT INTO aluno (nome, data_nascimento, endereco, telefone) VALUES
+('Guilherme', '2001-06-15', 'Kilamba', '12345-6789'),
+('Eric', '2000-04-01', 'São Mateus', '98765-4321'),
+('Eudes', '2001-01-02', 'São Mateus', '02468-1357'),
+('Laís', '2001-02-13', 'Prestes Maia', '97531-6420'),
+('Ana Paula', '2001-01-02', 'Rua Barão Barroso do Amazonas', '99556-7531');
+
+INSERT INTO inscricao (fk_aluno, fk_curso, data_inscricao) VALUES
+(1, 2, '2026-02-19'),
+(2, 5, '2025-01-08'),
+(3, 4, '2021-03-05'),
+(4, 3, CURRENT_DATE),
+(5, 1, '2022-04-04');

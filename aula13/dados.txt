@@ -4,7 +4,7 @@ Entidades: escola, cursos e alunos
 escola: pk_escola, nome, endereco, telefone, email
 alunos: pk_aluno, nome, data_nascimento, endereco, telefone, email
 cursos: pk_curso, nome, custo, carga_horaria, estado
-inscricao: pk_inscricao, fk_aluno, fk_curso, data_inscricao
+inscricao: pk_inscricao, fk_aluno, fk_curso, data_inscricao, estado
 ---------------------------------------------------------------------------------------------------------------
 Banco de dados: biblioteca
 Entidades: biblioteca, usuarios, livros, emprestimos

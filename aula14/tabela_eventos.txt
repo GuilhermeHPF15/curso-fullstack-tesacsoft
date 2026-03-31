@@ -1,32 +1,38 @@
-locais
-pk_local, nome
+local
+pk_local, endereco
 
-salas
+sala
 pk_sala, nome, fk_local
 
-organizadores
+organizador
 pk_organizador, nome, nascimento, telefone, email
 
-eventos
-pk_evento, nome, fk_organizador, fk_local, data
+evento
+pk_evento, nome, fk_local, data, custo
 
-secoes
-pk_secao, nome, fk_evento
+organizacao
+pk_organizacao, fk_organizador, fk_evento
 
-palestrantes
+secao
+pk_secao, nome, fk_evento, fk_sala, hora_de_inicio, hora_de_fim
+
+palestrante
 pk_palestrante, nome, nascimento, telefone, email
 
-palestras
-pk_palestra, fk_evento, fk_palestrante
+palestra
+pk_palestra, fk_secao, fk_palestrante
 
-participantes
+participante
 pk_participante, nome, nascimento, telefone, email
 
-inscricoes
-pk_inscricao, fk_participante, fk_evento, custo
+inscricao
+pk_inscricao, fk_participante, fk_evento
 
-avaliacoes_de_eventos
-pk_avaliacao_de_evento, fk_evento, fk_participante, avaliacao
+inscricao_de_secao
+pk_inscricao_de_secao, fk_participante, fk_inscricao, data
 
-avaliacoes_de_palestras
-pk_avaliacao_de_palestra, fk_palestra, fk_participante, avaliacao
+avaliacao_de_evento
+pk_avaliacao_de_evento, fk_evento, fk_participante, avaliacao, comentario
+
+avaliacao_de_palestra
+pk_avaliacao_de_palestra, fk_palestra, fk_participante, avaliacao, comentario
