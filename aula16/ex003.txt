@@ -1,0 +1,14 @@
+SELECT * FROM usuario;
+
+SELECT nome, data_nascimento FROM usuario;
+SELECT p.pk_usuario AS "CHAVE", u.nome, u.data_nascimento AS "data de nascimento" FROM usuario u;
+
+SELECT * FROM livro;
+SELECT titulo, autor FROM livro;
+
+SELECT * FROM emprestimo;
+
+SELECT e.pk_emprestimo, u.nome, e.fk_livro, e.data_emprestimo, e.data_devolucao FROM emprestimo e
+INNER JOIN usuario u ON e.fk_usuario = u.pk_usuario;
+
+SELECT * FROM livro WHERE prateleira = '1';

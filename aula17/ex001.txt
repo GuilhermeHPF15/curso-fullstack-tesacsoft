@@ -1,0 +1,45 @@
+crianca (pk_crianca, nome, data_nascimento, genero, observacoes)
+
+matricula (pk_matricula, fk_crianca, fk_turma, data_matricula, estado)
+
+ano_letivo (pk_ano_letivo, descricao, data_inicio, data_fim)
+
+responsavel (pk_responsavel, nome, telefone, email)
+
+crianca_responsavel (pk_crianca_responsavel, fk_crianca, fk_responsavel, parentesco, autorizado_retirar)
+
+turma (pk_turma, nome, fk_faixa_etaria, fk_sala, fk_ano_letivo)
+
+sala (pk_sala, nome, capacidade)
+
+faixa_etaria (pk_faixa_etaria, descricao, idade_min, idade_max)
+
+funcionario (pk_funcionario, nome, cargo, telefone, email)
+
+funcionario_turma (pk_funcionario_turma, fk_funcionario, fk_turma)
+
+refeicao (pk_refeicao, fk_crianca, fk_tipo_refeicao, fk_prato, data, comportamento)
+
+tipo_refeicao (pk_tipo_refeicao, nome)
+
+prato (pk_prato, nome, descricao)
+
+saude (pk_saude, fk_crianca, medicacoes, observacoes, data_registro)
+
+alergia (pk_alergia, descricao)
+
+crianca_alergia (pk_crianca_alergia, fk_crianca, fk_alergia)
+
+ocorrencia_medica (pk_ocorrencia_medica, fk_crianca, descricao, data, acao_tomada)
+
+atividade (pk_atividade, nome, descricao, data, tipo, fk_turma)
+
+atividade_crianca (pk_atividade_crianca, fk_atividade, fk_crianca)
+
+atividade_funcionario (pk_atividade_funcionario, fk_atividade, fk_funcionario)
+
+perfil (pk_perfil, nome, descricao)
+
+conta (pk_conta, username, password, fk_perfil, fk_funcionario)
+
+presenca (pk_presenca, fk_crianca, fk_responsavel, data_hora_entrada, data_hora_saida)

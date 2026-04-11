@@ -1,0 +1,20 @@
+INSERT INTO usuario (nome, data_nascimento, endereco, telefone) VALUES
+('Guilherme', '2001-06-15', 'Kilamba', '12345-6789'),
+('Valdemir', '1990-12-30', 'Camama', '98765-4321'),
+('Amanda', '2000-03-14', 'Cidade Tiradentes', '02468-8642'),
+('Paula', '2002-07-08', 'Prestes Maia', '95731-2758'),
+('Vitória', '1998-09-25', 'Talatona', '16875-3698');
+
+INSERT INTO livro (titulo, genero, autor, data_lancamento, prateleira, total_copias) VALUES
+('Jogos Vorazes', 'Ação', 'Suzane Collins', '2010-05-06', '1', '15'),
+('O Pequeno Príncipe', 'Fantasia', 'Pedro', '1970-09-08', '2', '10'),
+('Lorem Ipsum', 'Mistério', 'Guilherme', '2026-04-01', '3', '5'),
+('A Verdade sobre os Dinossauros', 'Científico', 'Eric Calixto', '2025-05-02', '4', '9'),
+('Velocidade da Luz', 'Científico', 'Pedro Looz', '2014-07-23', '4', '8');
+
+INSERT INTO emprestimo (fk_usuario, fk_livro, data_emprestimo, data_devolucao) VALUES
+(1, 5, '2026-04-01', '2026-05-02'),
+(2, 3, '2026-03-22', '2026-04-22'),
+(3, 2, '2026-03-14', '2026-04-14'),
+(4, 4, '2026-02-20', '2026-03-20'),
+(5, 1, '2026-01-05', '2026-02-05');
