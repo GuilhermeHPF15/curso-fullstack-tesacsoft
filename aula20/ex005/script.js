@@ -56,7 +56,14 @@ function introduzirSinal(tipoDaOperacao) {
     }
     if (sinal.innerText) {
         let resultado = operacao(parseFloat(n1.innerText), sinal.innerText, parseFloat(textBox.value));
-        n1.innerText = resultado
+        if (checarInfinito(resultado)) {
+            textBox.value = resultado;
+            n1.innerText = "";
+            sinal.innerText = "";
+            return;
+        } else {
+            n1.innerText = resultado
+        }
     } else {
         n1.innerText = textBox.value;
     }
@@ -67,17 +74,16 @@ function introduzirSinal(tipoDaOperacao) {
 function operacao(n1, sinal, n2) {
     let resultado;
     if (sinal === "/") {
-        if (n2 === 0) {
-            resultado = "Não é possível dividir por 0"
-        } else {
-            resultado = n1 / n2;
-        }
+        resultado = n1 / n2;
     } else if (sinal === "*") {
         resultado = n1 * n2;
     } else if (sinal === "-") {
         resultado = n1 - n2;
     } else if (sinal === "+") {
         resultado = n1 + n2;
+    }
+    if (checarInfinito(resultado)) {
+        resultado = "Não é possível dividir por 0"
     }
     return resultado;
 }
@@ -95,4 +101,12 @@ function igual() {
         textBox.value = resultado;
         final = true;
     }       
+}
+
+function checarInfinito(valor) {
+    if (!isFinite(valor)) {
+        return true;
+    } else {
+        return false;
+    }
 }
