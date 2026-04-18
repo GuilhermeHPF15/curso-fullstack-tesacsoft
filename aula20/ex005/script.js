@@ -5,10 +5,12 @@ let n2 = document.querySelector("#n2");
 let final = false;
 
 function MoM() {
+    if (Number.isNaN(parseFloat(textBox.value))) C()
     textBox.value *= -1;
 }
 
 function CE() {
+    if (Number.isNaN(parseFloat(textBox.value))) C()
     textBox.value = 0;
 }
 
@@ -26,9 +28,7 @@ function del() {
     } else {
         if (textBox.value !== 0) {
             textBox.value = textBox.value.slice(0, -1);
-            if (!textBox.value) {
-                textBox.value = 0;
-            }
+            if (!textBox.value) textBox.value = 0;
         }
     }
 }
@@ -38,53 +38,36 @@ function introduzirDigito(valor) {
         C()
         final = false;
     }
-    if (valor === "." && textBox.value.includes(".")) {
-        return;
-    }
-    if (textBox.value === "0" && valor !== ".") {
-        textBox.value = valor;
-    } else {
-        textBox.value += valor;
-    }
+    if (valor === "." && textBox.value.includes(".")) return;
+    if (textBox.value === "0" && valor !== ".") textBox.value = valor;
+    else textBox.value += valor;
 }
 
 function introduzirSinal(tipoDaOperacao) {
+    if (Number.isNaN(parseFloat(textBox.value))) return;
     if (final) {
         sinal.innerText = "";
         n2.innerText = "";
         final = false;
-    }
+    } 
     if (sinal.innerText) {
         let resultado = operacao(parseFloat(n1.innerText), sinal.innerText, parseFloat(textBox.value));
-        if (checarInfinito(resultado)) {
-            textBox.value = resultado;
-            n1.innerText = "";
-            sinal.innerText = "";
+        if (!isFinite(resultado)) {
+            igual()
             return;
-        } else {
-            n1.innerText = resultado
-        }
-    } else {
-        n1.innerText = textBox.value;
-    }
+        } else  n1.innerText = resultado
+    } else n1.innerText = textBox.value;
     sinal.innerText = tipoDaOperacao;
     textBox.value = 0;
 }
 
 function operacao(n1, sinal, n2) {
-    let resultado;
-    if (sinal === "/") {
-        resultado = n1 / n2;
-    } else if (sinal === "*") {
-        resultado = n1 * n2;
-    } else if (sinal === "-") {
-        resultado = n1 - n2;
-    } else if (sinal === "+") {
-        resultado = n1 + n2;
-    }
-    if (checarInfinito(resultado)) {
-        resultado = "Não é possível dividir por 0"
-    }
+    let resultado = 0;
+    if (sinal === "/") resultado = n1 / n2;
+    else if (sinal === "x") resultado = n1 * n2;
+    else if (sinal === "-") resultado = n1 - n2;
+    else if (sinal === "+") resultado = n1 + n2;
+    if (!isFinite(resultado)) resultado = "Não é possível dividir por 0";
     return resultado;
 }
 
@@ -92,6 +75,7 @@ function igual() {
     let resultado; 
     if (final) {
         resultado = operacao(parseFloat(textBox.value), sinal.innerText, parseFloat(n2.innerText));
+        if (isNaN(resultado)) return;
         n1.innerText = textBox.value;
         textBox.value = resultado;
     } else {
@@ -101,12 +85,4 @@ function igual() {
         textBox.value = resultado;
         final = true;
     }       
-}
-
-function checarInfinito(valor) {
-    if (!isFinite(valor)) {
-        return true;
-    } else {
-        return false;
-    }
 }
