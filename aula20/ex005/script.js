@@ -1,8 +1,7 @@
 let textBox = document.querySelector("input");
-let p = document.querySelector("#n1");
-let p2 = document.querySelector("#n2");
+let n1 = document.querySelector("#n1");
 let sinal = document.querySelector("#sinal");
-let resultado = 0;
+let n2 = document.querySelector("#n2");
 let final = false;
 
 function MoM() {
@@ -15,119 +14,85 @@ function CE() {
 
 function C() {
     textBox.value = 0;
-    p.innerText = "";
-    p2.innerText = "";
+    n1.innerText = "";
     sinal.innerText = "";
+    n2.innerText = "";
 }
 
 function del() {
-    textBox.value = textBox.value.slice(0, -1);
+    if (final) {
+        C()
+        final = false;
+    } else {
+        if (textBox.value != 0) {
+            textBox.value = textBox.value.slice(0, -1);
+            if (!textBox.value) {
+                textBox.value = 0;
+            }
+        }
+    }
 }
 
-function enterNumber(valor) {
+function introduzirDigito(valor) {
     if (final) {
-        p.innerText = "";
-        p2.innerText = "";
-        sinal.innerText = "";
-        textBox.value = "0";
+        C()
         final = false;
     }
-
-    if (textBox.value == 0) {
+    if (valor == "." && textBox.value.includes(".")) {
+        return;
+    }
+    if (textBox.value == "0" && valor != ".") {
         textBox.value = valor;
     } else {
         textBox.value += valor;
     }
 }
 
-function operacao(acao) {
+function introduzirSinal(tipoDaOperacao) {
     if (final) {
-        p.innerText = textBox.value;
-        p2.innerText = "";
         sinal.innerText = "";
+        n2.innerText = "";
         final = false;
     }
-
-    if (sinal.innerText == "") {
-        resultado = parseFloat(textBox.value);
+    if (sinal.innerText) {
+        let resultado = operacao(parseFloat(n1.innerText), sinal.innerText, parseFloat(textBox.value));
+        n1.innerText = resultado
+    } else {
+        n1.innerText = textBox.value;
     }
+    sinal.innerText = tipoDaOperacao;
+    textBox.value = 0;
+}
 
-    else if (sinal.innerText == "+") {
-        resultado = parseFloat(textBox.value) + parseFloat(p.innerText);
-    }
-
-    else if (sinal.innerText == "-") {
-        if (p.innerText == 0) {
-            resultado = parseFloat(textBox.value) - parseFloat(p.innerText);
+function operacao(n1, sinal, n2) {
+    let resultado;
+    if (sinal == "/") {
+        if (n2 == 0) {
+            resultado = "Não é possível dividir por 0"
         } else {
-            resultado = parseFloat(p.innerText) - parseFloat(textBox.value);
+            resultado = n1 / n2;
         }
+    } else if (sinal == "*") {
+        resultado = n1 * n2;
+    } else if (sinal == "-") {
+        resultado = n1 - n2;
+    } else if (sinal == "+") {
+        resultado = n1 + n2;
     }
-
-    else if (sinal.innerText == "x") {
-        if (p.innerText == 0) {
-            resultado = parseFloat(textBox.value) * 1;
-        } else {
-            resultado = parseFloat(p.innerText) * parseFloat(textBox.value);
-        }
-    }
-
-    else if (sinal.innerText == "/") {
-        if (p.innerText == 0) {
-            resultado = parseFloat(textBox.value) / 1;
-        } else {
-            resultado = parseFloat(p.innerText) / parseFloat(textBox.value);
-        }
-    }
-
-    p.innerText = resultado;
-    textBox.value = "0";
-    
-    if (acao == "soma") {
-        sinal.innerText = "+";
-    }
-
-    if (acao == "sub") {
-        sinal.innerText = "-";
-    }
-    
-    if (acao == "mult") {
-        sinal.innerText = "x";
-    }
-
-    if (acao == "div") {
-        sinal.innerText = "/";
-    }
+    return resultado;
 }
 
 function igual() {
+    let resultado; 
     if (final) {
-        p.innerText = textBox.value;
-
-        if (sinal.innerText == "+") {
-            resultado = parseFloat(textBox.value) + parseFloat(p2.innerText);
-        } else if (sinal.innerText == "-") {
-            resultado = parseFloat(textBox.value) - parseFloat(p2.innerText);
-        } else if (sinal.innerText == "x") {
-            resultado = parseFloat(textBox.value) * parseFloat(p2.innerText);
-        } else if (sinal.innerText == "/") {
-            resultado = parseFloat(textBox.value) / parseFloat(p2.innerText);
-        }
-
+        resultado = operacao(parseFloat(textBox.value), sinal.innerText, parseFloat(n2.innerText));
+        n1.innerText = textBox.value;
         textBox.value = resultado;
     } else {
-        if (sinal.innerText == "+") {
-            resultado = parseFloat(p.innerText) + parseFloat(textBox.value);
-        } else if (sinal.innerText == "-") {
-            resultado = parseFloat(p.innerText) - parseFloat(textBox.value);
-        } else if (sinal.innerText == "x") {
-            resultado = parseFloat(p.innerText) * parseFloat(textBox.value);
-        } else if (sinal.innerText == "/") {
-            resultado = parseFloat(p.innerText) / parseFloat(textBox.value);
-        }
-
-        p2.innerText += textBox.value;
+        resultado = operacao(parseFloat(n1.innerText), sinal.innerText, parseFloat(textBox.value));
+        if (!resultado) return;
+        n2.innerText = textBox.value;
         textBox.value = resultado;
         final = true;
-    }
+    }       
 }
