@@ -24,7 +24,7 @@ function del() {
         C()
         final = false;
     } else {
-        if (textBox.value != 0) {
+        if (textBox.value !== 0) {
             textBox.value = textBox.value.slice(0, -1);
             if (!textBox.value) {
                 textBox.value = 0;
@@ -38,10 +38,10 @@ function introduzirDigito(valor) {
         C()
         final = false;
     }
-    if (valor == "." && textBox.value.includes(".")) {
+    if (valor === "." && textBox.value.includes(".")) {
         return;
     }
-    if (textBox.value == "0" && valor != ".") {
+    if (textBox.value === "0" && valor !== ".") {
         textBox.value = valor;
     } else {
         textBox.value += valor;
@@ -66,17 +66,17 @@ function introduzirSinal(tipoDaOperacao) {
 
 function operacao(n1, sinal, n2) {
     let resultado;
-    if (sinal == "/") {
-        if (n2 == 0) {
+    if (sinal === "/") {
+        if (n2 === 0) {
             resultado = "Não é possível dividir por 0"
         } else {
             resultado = n1 / n2;
         }
-    } else if (sinal == "*") {
+    } else if (sinal === "*") {
         resultado = n1 * n2;
-    } else if (sinal == "-") {
+    } else if (sinal === "-") {
         resultado = n1 - n2;
-    } else if (sinal == "+") {
+    } else if (sinal === "+") {
         resultado = n1 + n2;
     }
     return resultado;
