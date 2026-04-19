@@ -26,10 +26,8 @@ function del() {
         C()
         final = false;
     } else {
-        if (textBox.value !== 0) {
-            textBox.value = textBox.value.slice(0, -1);
-            if (!textBox.value) textBox.value = 0;
-        }
+        textBox.value = textBox.value.slice(0, -1);
+        if (!textBox.value) textBox.value = 0;
     }
 }
 
