@@ -53,7 +53,7 @@ function introduzirSinal(tipoDaOperacao) {
         if (!isFinite(resultado)) {
             igual()
             return;
-        } else  n1.innerText = resultado
+        } else n1.innerText = resultado
     } else n1.innerText = textBox.value;
     sinal.innerText = tipoDaOperacao;
     textBox.value = 0;
