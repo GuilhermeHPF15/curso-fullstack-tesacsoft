@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="table.css">
+
+    </head>
+    <body>
+
+<h2>Tabela de Frutas Tropicais</h2>
+   <!-- Formulário para adicionar frutas -->
+    <div class="form-container">
+        <input type="text" id="name" placeholder="Nome">
+        <input type="text" id="color" placeholder="Cor">
+        <input type="text" id="flavor" placeholder="Sabor">
+        <input type="text" id="origin" placeholder="Origem">
+        <br>
+        
+        <button onclick="submit()">Guardar</button>
+    </div>
+
+    <!-- Tabela -->
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Cor</th>
+            <th>Sabor</th>
+            <th>Origem</th>
+            <th class="apagar">Apagar</th>
+
+        </tr>
+
+
+    </table>
+    <script src="table.js">
+
+    </script>
+    </body>
+    </html>
