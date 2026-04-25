@@ -1,9 +1,12 @@
+//localStorage.clear();
+
 let table = document.querySelector("table");
-let button = document.querySelector("button");
+let save = document.querySelector("#save");
 let name = document.querySelector("#name");
 let color = document.querySelector("#color");
 let flavor = document.querySelector("#flavor");
 let origin = document.querySelector("#origin");
+let searchBar = document.querySelector("#search");
 
 function insertInto(object) {
     let newRow = document.createElement("tr");
@@ -22,7 +25,17 @@ function insertInto(object) {
     button.addEventListener("click", erase);
 }
 
-function submit() {
+function erase(event) {
+    let row = event.target.closest("tr");
+    let targetId = row.dataset.id;
+    row.remove();
+    let fruits = JSON.parse(localStorage.getItem("frutas"));
+    let removeFruit = fruits.filter(fruit => fruit.id != targetId);
+    localStorage.setItem("frutas", JSON.stringify(removeFruit));
+}
+
+save.addEventListener("click", () => {
+    if (!name.value) return;
     let fruitArray = []
     let fruit = {id: 0, nome: name.value, cor: color.value, sabor: flavor.value, origem: origin.value};
     if (!localStorage.getItem("frutas")) {
@@ -37,18 +50,16 @@ function submit() {
     }
         insertInto(fruit);
         name.value = color.value = flavor.value = origin.value = "";
-}
+});
 
-function erase(event) {
-    let row = event.target.closest("tr");
-    let targetId = row.dataset.id;
-    row.remove();
-    let fruits = JSON.parse(localStorage.getItem("frutas"));
-    let removeFruit = fruits.filter(fruit => fruit.id != targetId);
-    localStorage.setItem("frutas", JSON.stringify(removeFruit));
-}
-
-//localStorage.clear();
+searchBar.addEventListener("input", () => {
+    let rows = document.querySelectorAll("tr:not(:first-child)");
+    rows.forEach(row => {
+        let cells = row.querySelectorAll("td:not(:last-child)");
+        let rowText = Array.from(cells).map(td => td.innerText).join(" ").toLowerCase();
+        row.style.display = rowText.includes(searchBar.value.toLowerCase().trim()) ? "" : "none";
+    });
+});
 
 if (localStorage.getItem("frutas")) {
     let getFruit = JSON.parse(localStorage.getItem("frutas"));
