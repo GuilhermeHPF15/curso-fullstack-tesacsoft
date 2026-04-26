@@ -49,8 +49,9 @@ function edit(event) {
     button2.addEventListener("click", () => cancelEdit(row, rowCopy));
 }   
 
-function saveEdit() {
-    return;
+function saveEdit(editedRow) {
+    let fruits = JSON.parse(localStorage.getItem("frutas"))
+    let editedFruit = fruits.map(fruit => fruit.id === editedRow.querySelector("td:first-child").innerText);
 }
 
 function cancelEdit(editedRow, originalRow) {
