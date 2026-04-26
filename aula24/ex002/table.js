@@ -42,7 +42,7 @@ function edit(event) {
     button1.innerText = "Guardar";
     button1.style.backgroundColor = "blue";
     button1.removeEventListener("click", edit);
-    button1.addEventListener("click", saveEdit);
+    button1.addEventListener("click", () => saveEdit(row));
     button2.innerText = "Cancelar";
     button2.style.backgroundColor = "red";
     button2.removeEventListener("click", erase);
@@ -50,8 +50,17 @@ function edit(event) {
 }   
 
 function saveEdit(editedRow) {
-    let fruits = JSON.parse(localStorage.getItem("frutas"))
-    let editedFruit = fruits.map(fruit => fruit.id === editedRow.querySelector("td:first-child").innerText);
+    let fruits = JSON.parse(localStorage.getItem("frutas"));
+    let targetId = editedRow.dataset.id;
+    let fruitIndex = fruits.findIndex(fruit => fruit.id == targetId);
+    rowData = Array.from(editedRow).map(input => input.value);
+    fruits[fruitIndex].nome = rowData[0];
+    fruits[fruitIndex].nome = rowData[1];
+    fruits[fruitIndex].nome = rowData[2];
+    fruits[fruitIndex].nome = rowData[3];
+    localStorage.setItem("frutas", JSON.stringify(fruits));
+    inputs = editedRow.querySelectorAll("input");
+    inputs.map(input => input.value);
 }
 
 function cancelEdit(editedRow, originalRow) {
