@@ -31,6 +31,7 @@ function insertInto(object) {
 
 function edit(event) {
     let row = event.target.closest("tr");
+    let rowCopy = row.cloneNode(true);
     let tdAll = row.querySelectorAll("td:not(:first-child, :last-child)");
     tdAll.forEach (td => {
         td.innerHTML = `<input type="text" value="${td.innerText}">`;
@@ -41,10 +42,20 @@ function edit(event) {
     button1.innerText = "Guardar";
     button1.style.backgroundColor = "blue";
     button1.removeEventListener("click", edit);
+    button1.addEventListener("click", saveEdit);
     button2.innerText = "Cancelar";
     button2.style.backgroundColor = "red";
     button2.removeEventListener("click", erase);
+    button2.addEventListener("click", () => cancelEdit(row, rowCopy));
 }   
+
+function saveEdit() {
+    return;
+}
+
+function cancelEdit(editedRow, originalRow) {
+    editedRow.replaceWith(originalRow);
+}
 
 function erase(event) {
     let row = event.target.closest("tr");
