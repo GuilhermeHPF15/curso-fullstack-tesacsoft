@@ -40,8 +40,10 @@ function edit(event) {
     let button2 = tdParent.querySelector("button:nth-child(2)");
     button1.innerText = "Guardar";
     button1.style.backgroundColor = "blue";
+    button1.removeEventListener("click", edit);
     button2.innerText = "Cancelar";
     button2.style.backgroundColor = "red";
+    button2.removeEventListener("click", erase);
 }   
 
 function erase(event) {
