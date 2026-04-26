@@ -33,9 +33,12 @@ function edit(event) {
     let row = event.target.closest("tr");
     let tdAll = row.querySelectorAll("td:not(:first-child, :last-child)");
     tdAll.forEach (td => {
-        td.innerHTML = `<input type="text" value="${td.value}">`;
+        td.innerHTML = `<input type="text" value="${td.innerText}">`;
     });
-}
+    let tdParent = event.target.parentElement;
+    tdParent.querySelector("button:first-child").innerText = "Guardar";
+    tdParent.querySelector("button:nth-child(2)").innerText = "Cancelar";
+}   
 
 function erase(event) {
     let row = event.target.closest("tr");
