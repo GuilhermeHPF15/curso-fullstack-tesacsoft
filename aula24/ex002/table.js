@@ -55,6 +55,8 @@ function saveEdit() {
 
 function cancelEdit(editedRow, originalRow) {
     editedRow.replaceWith(originalRow);
+    originalRow.querySelector("button:first-child").addEventListener("click", edit);
+    originalRow.querySelector("button:nth-child(2)").addEventListener("click", erase);
 }
 
 function erase(event) {
