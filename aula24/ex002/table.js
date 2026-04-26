@@ -36,8 +36,12 @@ function edit(event) {
         td.innerHTML = `<input type="text" value="${td.innerText}">`;
     });
     let tdParent = event.target.parentElement;
-    tdParent.querySelector("button:first-child").innerText = "Guardar";
-    tdParent.querySelector("button:nth-child(2)").innerText = "Cancelar";
+    let button1 = tdParent.querySelector("button:first-child");
+    let button2 = tdParent.querySelector("button:nth-child(2)");
+    button1.innerText = "Guardar";
+    button1.style.backgroundColor = "blue";
+    button2.innerText = "Cancelar";
+    button2.style.backgroundColor = "red";
 }   
 
 function erase(event) {
