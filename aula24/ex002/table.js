@@ -51,16 +51,31 @@ function edit(event) {
 
 function saveEdit(editedRow) {
     let fruits = JSON.parse(localStorage.getItem("frutas"));
-    let targetId = editedRow.dataset.id;
-    let fruitIndex = fruits.findIndex(fruit => fruit.id == targetId);
-    rowData = Array.from(editedRow).map(input => input.value);
-    fruits[fruitIndex].nome = rowData[0];
-    fruits[fruitIndex].nome = rowData[1];
-    fruits[fruitIndex].nome = rowData[2];
-    fruits[fruitIndex].nome = rowData[3];
+    let fruitIndex = fruits.findIndex(fruit => fruit.id == editedRow.dataset.id);
+    let inputs = editedRow.querySelectorAll("input")
+    newData = Array.from(inputs).map(input => input.value);
+    fruits[fruitIndex].nome = newData[0];
+    fruits[fruitIndex].cor = newData[1];
+    fruits[fruitIndex].sabor = newData[2];
+    fruits[fruitIndex].origem = newData[3];
     localStorage.setItem("frutas", JSON.stringify(fruits));
-    inputs = editedRow.querySelectorAll("input");
-    inputs.map(input => input.value);
+    let tds = editedRow.querySelectorAll("td:not(:first-child, :last-child)");
+    tds.forEach((td, index) => {
+        td.innerText = newData[index];
+    })
+    let tdButtons = editedRow.querySelector("td:last-child");
+    let button1 = tdButtons.querySelector("button:first-child");
+    let button2 = tdButtons.querySelector("button:nth-child(2)");
+    let newButton1 = button1.cloneNode(true);
+    button1.replaceWith(newButton1);
+    newButton1.innerText = "Editar";
+    newButton1.style.backgroundColor = "#4CAF50";
+    newButton1.addEventListener("click", edit);
+    let newButton2 = button2.cloneNode(true);
+    button2.replaceWith(newButton2);
+    newButton2.innerText = "Apagar";
+    newButton2.style.backgroundColor = "#4CAF50";
+    newButton2.addEventListener("click", erase);
 }
 
 function cancelEdit(editedRow, originalRow) {
