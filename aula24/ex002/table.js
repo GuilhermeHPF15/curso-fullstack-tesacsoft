@@ -17,12 +17,24 @@ function insertInto(object) {
         newData.innerText = element;
         newRow.appendChild(newData);
     });
-    let tdButton = document.createElement("td");
-    newRow.appendChild(tdButton);
-    let button = document.createElement("button");
-    button.innerText = "Apagar";
-    tdButton.appendChild(button);
-    button.addEventListener("click", erase);
+    let tdButtons = document.createElement("td");
+    newRow.appendChild(tdButtons);
+    let editButton = document.createElement("button");
+    editButton.innerText = "Editar";
+    tdButtons.appendChild(editButton);
+    editButton.addEventListener("click", edit);
+    let eraseButton = document.createElement("button");
+    eraseButton.innerText = "Apagar";
+    tdButtons.appendChild(eraseButton);
+    eraseButton.addEventListener("click", erase);
+}
+
+function edit(event) {
+    let row = event.target.closest("tr");
+    let tdAll = row.querySelectorAll("td:not(:first-child, :last-child)");
+    tdAll.forEach (td => {
+        td.innerHTML = `<input type="text" value="${td.value}">`;
+    });
 }
 
 function erase(event) {

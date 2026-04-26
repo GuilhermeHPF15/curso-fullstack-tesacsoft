@@ -33,7 +33,6 @@ input::placeholder {
 /* Estilo do botão */
 button {
     padding: 10px 20px;
-    margin-top: 10px;
     background-color: #4CAF50;
     color: white;
     font-size: 14px;
@@ -89,7 +88,7 @@ div.form-container {
             color: white;
             text-transform: uppercase;
         }
-        th.apagar {
+        th.alterar {
             background-color: #3b080a;
         }
 
